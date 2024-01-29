@@ -16,7 +16,7 @@ public:
 
 public slots:
     void connectToServer();
-    void sendData();
+    void sendData(const QString &data);
 
 private slots:
     void readResponse();

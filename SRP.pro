@@ -13,6 +13,7 @@ SOURCES += \
     clientwindow.cpp \
     main.cpp \
     server.cpp \
+    server_screen.cpp \
     serverwindow.cpp
 
 HEADERS += \
@@ -21,7 +22,6 @@ HEADERS += \
     server.h \
     serverwindow.h \
     ui_serverwindow.h \
-    ui_clientwindow.h \
 
   # 指定生成的文件目录
   # 设置 uic 生成的文件的目录
@@ -29,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     clientwindow.ui \
+    screen.ui \
     serverwindow.ui
 
 # Default rules for deployment.

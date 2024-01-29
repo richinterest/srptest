@@ -43,6 +43,8 @@ void Server::readData()
         if (client->bytesAvailable() > 0) {
             QByteArray data = client->readAll();
             qDebug() << "Client data received: " << data;
+            QString message = QString::fromUtf8(data); // Convert QByteArray to QString
+            emit messageReceived(message);
 
             // Broadcast the message to all clients
             for (QTcpSocket* otherClient : clients) {

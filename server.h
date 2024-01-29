@@ -14,7 +14,8 @@ class Server : public QObject
 public:
     Server(QObject *parent = nullptr);
     ~Server();
-
+signals:
+    void messageReceived(const QString &message);
 public slots:
     void startServer();
 

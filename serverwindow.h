@@ -12,15 +12,16 @@ class ServerWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    ServerWindow(QWidget *parent = nullptr);
+    ServerWindow(Server* server, QWidget *parent = nullptr);
     ~ServerWindow();
 
 private slots:
     void onSendMessage();
+    void appendMessage(const QString &message);
 
 private:
     Ui::serverwindow *ui;
-    Server server;
+    Server *server;
 };
 
 #endif // SERVERWINDOW_H

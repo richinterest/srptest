@@ -7,19 +7,18 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // Create an instance of the Server class
     Server server;
-
+    server.startServer();
     // Create an instance of the ServerWindow class and associate it with the server
-    ServerWindow ServerWindow(&server);
-    ServerWindow.show();
-
+    ServerWindow serverWindow(&server);
+    serverWindow.show();
     // Create an instance of the Client class
     Client client;
+    client.connectToServer();
 
     // Create an instance of the ClientWindow class and associate it with the client
-    ClientWindow ClientWindow(&client);
-    ClientWindow.show();
+    ClientWindow clientWindow(&client);
+    clientWindow.show();
 
     return a.exec();
 }

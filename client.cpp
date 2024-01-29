@@ -1,10 +1,9 @@
 // Client.cpp
 #include "Client.h"
-
+#include"clientwindow.h"
 Client::Client(QObject *parent)
     : QObject(parent), tcpSocket(new QTcpSocket(this))
 {
-    connect(tcpSocket, &QTcpSocket::connected, this, &Client::sendData);
     connect(tcpSocket, &QTcpSocket::readyRead, this, &Client::readResponse);
 }
 
@@ -24,13 +23,11 @@ void Client::connectToServer()
     }
 }
 
-void Client::sendData()
+void Client::sendData(const QString &data) // 修改 sendDate 接收一个 QString 参数
 {
-    // 发送数据给服务器
-    QString dataToSend = "Hello from client!";
+    QString dataToSend = data;
     tcpSocket->write(dataToSend.toUtf8());
 }
-
 void Client::readResponse()
 {
     if (tcpSocket->bytesAvailable() > 0)
